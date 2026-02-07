@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.post("/create", async (req, res) => {
   const { username, text, image } = req.body;
-
+  
   const post = new Post({
     username,
     text,
