@@ -4,8 +4,7 @@ import dotenv from "dotenv";
 import connectDB from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
 import postRoutes from "./routes/postRoutes.js";
-import Post from "./models/Post.js"; 
-
+import Post from "./models/Post.js";
 dotenv.config();
 const app = express();
 
@@ -17,6 +16,11 @@ connectDB();
 
 app.use("/api", authRoutes);
 app.use("/api", postRoutes);
+
+app.get("/", (req, res) => {
+  res.send("Backend is running ");
+});
+
 
 
 const PORT = process.env.PORT || 8080;
