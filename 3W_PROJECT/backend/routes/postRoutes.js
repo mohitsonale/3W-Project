@@ -11,7 +11,7 @@ router.post("/create", async (req, res) => {
     username,
     text,
     image,
-    likes: [],
+    likes: [],  
     comments: []
   });
 
