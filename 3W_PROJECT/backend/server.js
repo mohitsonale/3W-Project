@@ -1,0 +1,26 @@
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
+import connectDB from "./config/db.js";
+import authRoutes from "./routes/authRoutes.js";
+import postRoutes from "./routes/postRoutes.js";
+import Post from "./models/Post.js"; 
+
+dotenv.config();
+const app = express();
+
+app.use(cors());
+app.use(express.json());
+
+
+connectDB();
+
+app.use("/api", authRoutes);
+app.use("/api", postRoutes);
+
+
+const PORT = process.env.PORT || 8080;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
